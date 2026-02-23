@@ -1,17 +1,16 @@
 // Uses CommonJS, AMD or browser globals to create a jQuery plugin.
 (function (factory) {
-  if (typeof define === "function" && define.amd) {
+  if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(["jquery"], factory);
-  } else if (typeof module === "object" && module.exports) {
+    define(['jquery'], factory);
+  } else if (typeof module === 'object' && module.exports) {
     // Node/CommonJS
     module.exports = function (root, jQuery) {
       if (jQuery === undefined) {
-        if (typeof window !== "undefined") {
-          jQuery = require("jquery");
-        } else {
-          jQuery = require("jquery")(root);
-        }
+        jQuery =
+          globalThis.window === undefined
+            ? require('jquery')(root)
+            : require('jquery');
       }
       factory(jQuery);
       return jQuery;
@@ -27,10 +26,10 @@
     var configs = $.extend(
       true,
       {
-        quitter: "a", // must be changed by user because it's buggy
-        attr: "sidebar-main",
+        quitter: 'a', // must be changed by user because it's buggy
+        attr: 'sidebar-main',
         open: false,
-        align: "left",
+        align: 'left',
         top: 0,
         width: 300,
         gap: 64,
@@ -38,13 +37,13 @@
         freezePage: true,
         animation: {
           duration: 300,
-          easing: "ease-out",
+          easing: 'ease-out',
         },
         mask: {
           display: true,
           opacity: 0.5,
           css: {
-            backgroundColor: "black",
+            backgroundColor: 'black',
           },
         },
         events: {
@@ -61,14 +60,14 @@
     // return this to keep chainability
     return this.each(function () {
       var $sidebar = $(this);
-      var windowWidth = $(window).width();
-      var baseAttr = "data-" + configs.attr;
-      var sidebarAttrOpen = baseAttr + "-open";
+      var windowWidth = $(globalThis).width();
+      var baseAttr = 'data-' + configs.attr;
+      var sidebarAttrOpen = baseAttr + '-open';
 
       /**
        * Set the sidebar width according to the current window width
-       * @param {number} windowWidth - $(window).width()
-       * @return {number}
+       * @param windowWidth - $(window).width()
+       * @returns
        */
       var setSidebarWidth = function (windowWidth) {
         return windowWidth < configs.width + configs.gap
@@ -78,7 +77,7 @@
 
       /**
        * Return the current sidebar open attr
-       * @return {bool}
+       * @returns
        */
       var isSidebarOpen = function () {
         return JSON.parse($sidebar.attr(sidebarAttrOpen));
@@ -86,7 +85,7 @@
 
       /**
        * change sidebar attr `open` status
-       * @param {boolean} status
+       * @param status
        */
       var setSidebarAttrOpen = function (status) {
         $sidebar.attr(sidebarAttrOpen, status);
@@ -94,9 +93,9 @@
 
       // apply style and init attribute
       $sidebar.attr(sidebarAttrOpen, configs.open).css({
-        display: "block",
-        position: "fixed",
-        top: parseInt(configs.top), // default: 64px
+        display: 'block',
+        position: 'fixed',
+        top: Number.parseInt(configs.top), // default: 64px
         bottom: 0, // don't change this value
         width: setSidebarWidth(windowWidth),
         zIndex: configs.zIndex,
@@ -107,18 +106,18 @@
       });
 
       // Define Mask
-      var $mask = $("<div>").attr(baseAttr, "mask");
+      var $mask = $('<div>').attr(baseAttr, 'mask');
 
       // mask animation definition
       var maskActive = {
-        display: "block",
+        display: 'block',
         opacity: configs.mask.opacity,
         filter: `Alpha(opacity=${configs.mask.opacity * 100})`,
       };
       var maskInactive = {
-        display: "none",
+        display: 'none',
         opacity: 0,
-        filter: "Alpha(opacity=0)",
+        filter: 'Alpha(opacity=0)',
       };
 
       var maskInitialStatus = configs.open ? maskActive : maskInactive;
@@ -127,8 +126,8 @@
       var maskStyle = $.extend(
         true,
         {
-          position: "fixed",
-          top: parseInt(configs.top),
+          position: 'fixed',
+          top: Number.parseInt(configs.top),
           right: 0,
           bottom: 0,
           left: 0,
@@ -143,7 +142,7 @@
 
       // if mask is enabled than it is created
       if (configs.mask.display) {
-        $mask.appendTo("body").css(maskStyle);
+        $mask.appendTo('body').css(maskStyle);
       }
 
       /** events triggered on sidebar opening */
@@ -155,7 +154,7 @@
 
         // freeze page
         if (configs.freezePage) {
-          $("body").css("overflow-y", "hidden");
+          $('body').css('overflow-y', 'hidden');
         }
 
         setSidebarAttrOpen(true);
@@ -181,7 +180,7 @@
 
         // unfreeze page
         if (configs.freezePage) {
-          $("body").css("overflow-y", "visible");
+          $('body').css('overflow-y', 'visible');
         }
 
         setSidebarAttrOpen(false);
@@ -236,14 +235,14 @@
 
       // trigger close action when quitter elements
       // in sidebar are clicked
-      $sidebar.on("click", configs.quitter, closeSidebar);
+      $sidebar.on('click', configs.quitter, closeSidebar);
 
       // Updates on window resize
-      $(window).resize(function () {
-        var windowWidth = $(window).width();
+      $(globalThis).resize(function () {
+        var windowWidth = $(globalThis).width();
 
         // update default sidebar width on window resize
-        $sidebar.css("width", setSidebarWidth(windowWidth));
+        $sidebar.css('width', setSidebarWidth(windowWidth));
 
         // update sidebar width while open
         if (!$sidebar.attr(sidebarAttrOpen)) {

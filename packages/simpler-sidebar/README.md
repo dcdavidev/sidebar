@@ -1,6 +1,6 @@
-# `simpler-sidebar-css3`
+# `simpler-sidebar`
 
-This plugin is a version of `simpler-sidebar` that uses css3 animations instead of jquery animations. This should be less painfull especially for old processors, but it comes with some compatibility issues: CSS3 is not compatible with older browsers, so if you need to support older browsers too, check out [`simpler-sidebar`](https://github.com/ctrlmaniac/sidebar/tree/master/packages/simpler) plugin instead.
+A **jQuery plugin** that allows to create a **side nav** as in modern mobile apps. It aims to simplicity so that everybody can use it no matter if expert programmers or not. It is written entirely in javascript so that you won't need to include any css file and the only css you must add is not even required!
 
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
@@ -8,19 +8,19 @@ This plugin is a version of `simpler-sidebar` that uses css3 animations instead 
 
 ## Install
 
-**simpler-sidebar-css3** is available as a npm package
+**simpler-sidebar** is available as a npm package
 
 ```shell
 // with npm
-npm install @ctrlmaniac/simpler-sidebar-css3
+npm install @ctrlmaniac/simpler-sidebar
 
 // with yarn
-yarn add @ctrlmaniac/simpler-sidebar-css3
+yarn add @ctrlmaniac/simpler-sidebar
 ```
 
 ## Demo
 
-You can play with options in this [codepen](https://codepen.io/ctrlmaniac/pen/vYjLJeg).
+You can play with options in this [codepen](https://codepen.io/ctrlmaniac/pen/mdLVwoV).
 
 ## Usage
 
@@ -39,6 +39,11 @@ In your html file, include the jquery library! The only required library is the 
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- boby content -->
@@ -48,7 +53,7 @@ In your html file, include the jquery library! The only required library is the 
 
 ### 2. Prepare your template
 
-In order to make **simpler-sidebar-css3** work you will need to add at least two html elements in your template:
+In order to make **simpler-sidebar** work you will need to add at least two html elements in your template:
 
 - an app bar
 - the sidebar
@@ -62,6 +67,11 @@ The first element you will need is an app bar. An app bar, or a toolbar, is a ba
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
       crossorigin="anonymous"
     ></script>
   </head>
@@ -87,6 +97,11 @@ The second element you will need is of course a sidebar!
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
       crossorigin="anonymous"
     ></script>
   </head>
@@ -135,6 +150,11 @@ At the bottom of your html file you now have to include the simpler-sidebar plug
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="appbar">
@@ -153,14 +173,14 @@ At the bottom of your html file you now have to include the simpler-sidebar plug
     <!-- body content -->
 
     <!-- this is only an example! Check the right location of the script in your project -->
-    <script src="static/js/jquery.simpler-sidebar-css3.js"></script>
+    <script src="static/js/simpler-sidebar.js"></script>
 
     <!-- customize simple-sidebar -->
     <script>
-      $("document").ready(function () {
-        $("#sidebar-left").simplerSidebarCss3({
-          toggler: "#toggle-sidebar",
-          quitter: ".quit-sidebar",
+      $('document').ready(function () {
+        $('#sidebar-left').simplerSidebar({
+          toggler: '#toggle-sidebar',
+          quitter: '.quit-sidebar',
         });
       });
     </script>
@@ -187,19 +207,20 @@ Full option list
   align: "right", // string - right, left -- the position of the sidebar
   top: 0, // int - the amount in px of the position top of the sidebar
   width: 300, // int - the size in px of the sidebar
-  gap: 64, // int - the amount in px of the gap that will be left when the screen is narrower than the sidebar width
+  gap: 64, // int - the amount in px ot the gap that will be left when the screen is narrower than the sidebar width
   zIndex: 3000, // int - the z-index of the sidebar element
   freezePage: true, // bool - this option will disallow the scrolling of the page beneath the sidebar when it is opened
   animation: {
     duration: 500, // int - the time in ms of the animation
-    easing: "ease-out", // string - the tipe of easing animation
+    easing: "swing", // string - the tipe of easing animation
   },
   mask: {
     // a mask that will cover the content beneath the sidebar when opened
     display: true, // boolean - disable or not the mask element
-    opacity: 0.5,
     css: {
       backgroundColor: "black",
+      opacity: 0.5,
+      filter: "Alpha(opacity=50)",
     },
   },
   events: {
@@ -211,15 +232,3 @@ Full option list
   },
 }
 ```
-
-## Differencies with `simpler-sidebar`
-
-It you plan to use this plugin and you are already using `simpler-sidebar` there are few things you should know!
-
-No more need of the `jquery-ui` library! So you can get rid of it!
-
-This plugin uses css3 animation transition instead of jquery animation methods. In order to use css animations mask opacity option is no longer inside `mask.css` but directly inside its parent object `mask`.
-
-Animation `easing` must be valid css values, but animation `duration` must be in milliseconds! The plugin will take care of transforming that value in seconds!
-
-See [transition reference](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)

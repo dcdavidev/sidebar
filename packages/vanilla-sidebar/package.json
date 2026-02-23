@@ -1,11 +1,7 @@
 {
-  "name": "@ctrlmaniac/vanilla-sidebar",
+  "name": "@dcdavidev/vanilla-sidebar",
   "version": "1.3.7",
   "description": "A simple side nav",
-  "author": "Davide Di Criscito <davide.dicriscito@gmail.com>",
-  "homepage": "https://github.com/ctrlmaniac/sidebar",
-  "license": "MIT",
-  "main": "lib/vanilla-sidebar.js",
   "keywords": [
     "sidebar",
     "sidenav",
@@ -14,22 +10,26 @@
     "simple-sidebar",
     "simpler-sidebar"
   ],
+  "homepage": "https://github.com/dcdavidev/sidebar",
+  "bugs": {
+    "url": "https://github.com/dcdavidev/sidebar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcdavidev/sidebar.git"
+  },
+  "license": "MIT",
+  "author": "Davide Di Criscito <davide.dicriscito@gmail.com>",
+  "main": "lib/vanilla-sidebar.js",
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ctrlmaniac/sidebar.git"
-  },
   "scripts": {
     "build": "npx tsc",
     "postbuild": "uglifyjs ./lib/vanilla-sidebar.js -o ./lib/vanilla-sidebar.min.js"
-  },
-  "bugs": {
-    "url": "https://github.com/ctrlmaniac/sidebar/issues"
   },
   "gitHead": "e5a904ff5098bcd1db6133991f59c1547a2bf9f9"
 }

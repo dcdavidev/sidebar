@@ -1,11 +1,7 @@
 {
-  "name": "@ctrlmaniac/simpler-sidebar-css3",
+  "name": "@dcdavidev/simpler-sidebar-css3",
   "version": "1.1.9",
   "description": "A simple side nav written in jQuery with css3 animations",
-  "author": "Davide Di Criscito <davide.dicriscito@gmail.com>",
-  "homepage": "https://github.com/ctrlmaniac/sidebar",
-  "license": "MIT",
-  "main": "lib/jquery.simpler-sidebar-css3.js",
   "keywords": [
     "jquery",
     "jquery plugin",
@@ -16,23 +12,27 @@
     "simple-sidebar",
     "simpler-sidebar"
   ],
+  "homepage": "https://github.com/dcdavidev/sidebar",
+  "bugs": {
+    "url": "https://github.com/dcdavidev/sidebar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcdavidev/sidebar.git"
+  },
+  "license": "MIT",
+  "author": "Davide Di Criscito <davide.dicriscito@gmail.com>",
+  "main": "lib/jquery.simpler-sidebar-css3.js",
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ctrlmaniac/sidebar.git"
-  },
   "scripts": {
-    "build": "babel src -d lib",
     "prebuild": "npx eslint src/jquery.simpler-sidebar-css3.js",
+    "build": "babel src -d lib",
     "postbuild": "uglifyjs lib/jquery.simpler-sidebar-css3.js -o lib/jquery.simpler-sidebar-css3.min.js"
-  },
-  "bugs": {
-    "url": "https://github.com/ctrlmaniac/sidebar/issues"
   },
   "dependencies": {
     "jquery": "^4.0.0"

@@ -66,9 +66,9 @@ The first element you will need is an app bar. An app bar, or a toolbar, is a ba
 <!-- customize vanilla-sidebar -->
 <script>
   var sidebar = new VanillaSidebar({
-    selector: "#main-sidebar",
-    triggerer: "#toggle-sidebar",
-    quitter: ".quit-sidebar",
+    selector: '#main-sidebar',
+    triggerer: '#toggle-sidebar',
+    quitter: '.quit-sidebar',
   });
 </script>
 ```
@@ -80,7 +80,7 @@ selector: string; // The sidebar selector
 triggerer: string; // The element that will trigger the opening and closing event (ex: a menu button)
 quitter: string; // Elements (preferably a class) inside the sidebar that once clicked will trigger the closing event
 mask: boolean; // Whether to show the mask or not
-align: "right" | "left"; // The align of the sidebar
+align: 'right' | 'left'; // The align of the sidebar
 top: string; // The top offset of the sidebar
 width: string; // The width of the sidebar
 gap: string; // The safe gap between the sidebar and the window when the sidebar is opened
