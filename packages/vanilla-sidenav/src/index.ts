@@ -33,8 +33,8 @@ export class Sidenav {
   animationDuration: string;
 
   /**
-   * Initialize the sidenav.
-   * @param opt - The sidenav options.
+   * Initialize the sidenav instance and its event listeners.
+   * @param opt - The configuration options for the sidenav.
    */
   constructor(opt: SidenavOptions) {
     this.selector = opt.selector === undefined ? '#sidenav' : opt.selector;
@@ -144,7 +144,7 @@ export class Sidenav {
   }
 
   /**
-   * Set the status attribute of the sidenav.
+   * Set the status attribute of the sidenav element to track visibility.
    */
   setAttribute() {
     const status: string = this.sidenav.dataset.status!;
@@ -153,7 +153,7 @@ export class Sidenav {
   }
 
   /**
-   * Open the sidenav.
+   * Execute the opening animation and reveal the sidenav.
    */
   open() {
     this.sidenav.style[this.align] = '0px';
@@ -162,7 +162,7 @@ export class Sidenav {
   }
 
   /**
-   * Close the sidenav.
+   * Execute the closing animation and hide the sidenav.
    */
   close() {
     this.sidenav.style[this.align] = `-${this.sidenav.offsetWidth}px`;
@@ -171,7 +171,7 @@ export class Sidenav {
   }
 
   /**
-   * Show the mask.
+   * Fade in the background mask overlay.
    */
   showMask() {
     this.mask.style.opacity = '1';
@@ -179,7 +179,7 @@ export class Sidenav {
   }
 
   /**
-   * Hide the mask.
+   * Fade out and remove the background mask overlay from view.
    */
   hideMask() {
     this.mask.style.opacity = '0';
