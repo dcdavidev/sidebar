@@ -1,13 +1,16 @@
 # @dcdavidev/vanilla-sidenav
 
-**@dcdavidev/vanilla-sidenav** is a simple sidenav that aims to have zero dependencies. In fact, it is written in plain vanilla javascript!
+A lightweight, high-performance side navigation library written in **pure vanilla JavaScript**. With zero dependencies, it provides a smooth, native-like mobile sidebar experience while maintaining a tiny footprint.
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+## Features
 
-## Install
+- 🚀 **Zero Dependencies**: Pure JavaScript, no jQuery or other libraries required.
+- ⚡ **High Performance**: Optimized animations using CSS3 transitions.
+- 🧊 **Page Freezing**: Automatically prevents background scrolling when the menu is active.
+- 🎭 **Smart Masking**: Generates a clickable background overlay to dim the page content.
+- ⌨️ **TypeScript First**: Written in TypeScript with full type definitions included.
 
-**@dcdavidev/vanilla-sidenav** is available as a npm package
+## Installation
 
 ```shell
 # pnpm
@@ -20,29 +23,35 @@ npm install @dcdavidev/vanilla-sidenav
 yarn add @dcdavidev/vanilla-sidenav
 ```
 
-## Usage
+## Quick Start
 
-### 1. Prepare your template
+### 1. HTML Structure
 
-You will need at least two HTML elements in your template:
-
-- A trigger (toggler)
-- The sidenav container
+Your template requires a trigger element and the sidenav container.
 
 ```html
+<!-- Trigger -->
 <header>
-  <button id="toggle-sidenav">Menu</button>
+  <button id="toggle-sidenav">Open Menu</button>
 </header>
 
+<!-- Sidenav -->
 <nav id="sidenav">
   <div class="sidenav-wrapper">
-    <button class="quit-sidenav">Close Menu</button>
-    <!-- sidenav content -->
+    <button class="quit-sidenav">Close</button>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </div>
 </nav>
 ```
 
-### 2. Include and configure `vanilla-sidenav`
+### 2. Basic Initialization
+
+Import the class and initialize it with your selectors:
 
 ```javascript
 import { VanillaSidenav } from '@dcdavidev/vanilla-sidenav';
@@ -50,25 +59,52 @@ import { VanillaSidenav } from '@dcdavidev/vanilla-sidenav';
 const sidenav = new VanillaSidenav({
   selector: '#sidenav',
   triggerer: '#toggle-sidenav',
-  quitter: '.quit-sidenav',
+  quitter: '.quit-sidenav'
 });
+```
+
+## Advanced Usage
+
+### Handling Content Overflow
+
+For long menus that require scrolling, add the following CSS to your wrapper element:
+
+```css
+#sidenav .sidenav-wrapper {
+  height: 100%;
+  overflow-y: auto;
+}
+```
+
+### Manual Control
+
+You can also control the sidenav programmatically:
+
+```javascript
+const sidenav = new VanillaSidenav({ ... });
+
+// Open the menu
+sidenav.open();
+
+// Close the menu
+sidenav.close();
 ```
 
 ## Options
 
-```typescript
-selector: string; // The sidenav selector (default: '#sidenav')
-triggerer: string; // The element that will trigger the opening and closing event (ex: a menu button)
-quitter: string; // Elements (preferably a class) inside the sidenav that once clicked will trigger the closing event
-mask: boolean; // Whether to show the mask or not (default: true)
-align: 'right' | 'left'; // The alignment of the sidenav (default: 'left')
-top: string; // The top offset of the sidenav (default: '56px')
-width: string; // The width of the sidenav (default: '300px')
-gap: number; // The safe gap between the sidenav and the window when the sidenav is opened (default: 56)
-opened: boolean; // Whether the sidenav is initialized opened or closed (default: false)
-easing: string; // The animation easing (default: 'ease-in-out')
-zIndex: number; // The z-index of the sidenav (default: 3000)
-```
+| Option | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `selector` | `string` | `'#sidenav'` | The CSS selector for your sidenav container. |
+| `triggerer` | `string` | **Required** | The CSS selector for the element that toggles the menu. |
+| `quitter` | `string` | **Required** | Selector for elements inside the menu that close it when clicked. |
+| `align` | `'left' \| 'right'` | `'left'` | Which side the sidenav should appear on. |
+| `width` | `string` | `'300px'` | The width of the sidenav (with unit). |
+| `gap` | `number` | `56` | Minimum distance from the screen edge on small screens (in pixels). |
+| `top` | `string` | `'56px'` | The top offset of the sidenav. |
+| `opened` | `boolean` | `false` | Whether the sidenav starts open. |
+| `mask` | `boolean` | `true` | Enable/disable the background mask. |
+| `easing` | `string` | `'ease-in-out'` | CSS transition timing function. |
+| `zIndex` | `number` | `3000` | The z-index of the sidenav element. |
 
 ## License
 

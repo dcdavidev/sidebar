@@ -106,22 +106,22 @@ $('#sidenav').sidenav({
 
 ## Options
 
-| Option               | Type                | Default          | Description                                                                 |
-| :------------------- | :------------------ | :--------------- | :-------------------------------------------------------------------------- |
-| `toggler`            | `string`            | `''`             | **Required**. Selector for the element that toggles the menu.               |
-| `quitter`            | `string`            | `'a'`            | Selector for elements inside the menu that will close it when clicked.      |
-| `attr`               | `string`            | `'sidenav-main'` | Data attribute prefix.                                                      |
-| `align`              | `'left' \| 'right'` | `'left'`         | Sidebar alignment side.                                                     |
-| `width`              | `number`            | `300`            | Width of the menu in pixels.                                                |
-| `gap`                | `number`            | `64`             | Minimum gap from the screen edge on small devices.                          |
-| `open`               | `boolean`           | `false`          | Initial state on page load.                                                 |
-| `zIndex`             | `number`            | `3000`           | The z-index of the sidenav.                                                 |
-| `freezePage`         | `boolean`           | `true`           | Disables `body` scrolling when menu is open.                                |
-| `animation.duration` | `number`            | `300`            | CSS transition duration in milliseconds.                                    |
-| `animation.easing`   | `string`            | `'ease-out'`     | Any valid CSS `transition-timing-function`.                                 |
-| `mask.display`       | `boolean`           | `true`           | Enable/disable the background overlay.                                      |
-| `mask.opacity`       | `number`            | `0.5`            | Opacity of the background mask.                                             |
-| `mask.css`           | `object`            | `{...}`          | Custom CSS for the mask (e.g., `backgroundColor`).                          |
+| Option               | Type                | Default          | Description                                                            |
+| :------------------- | :------------------ | :--------------- | :--------------------------------------------------------------------- |
+| `toggler`            | `string`            | `''`             | **Required**. Selector for the element that toggles the menu.          |
+| `quitter`            | `string`            | `'a'`            | Selector for elements inside the menu that will close it when clicked. |
+| `attr`               | `string`            | `'sidenav-main'` | Data attribute prefix.                                                 |
+| `align`              | `'left' \| 'right'` | `'left'`         | Sidebar alignment side.                                                |
+| `width`              | `number`            | `300`            | Width of the menu in pixels.                                           |
+| `gap`                | `number`            | `64`             | Minimum gap from the screen edge on small devices.                     |
+| `open`               | `boolean`           | `false`          | Initial state on page load.                                            |
+| `zIndex`             | `number`            | `3000`           | The z-index of the sidenav.                                            |
+| `freezePage`         | `boolean`           | `true`           | Disables `body` scrolling when menu is open.                           |
+| `animation.duration` | `number`            | `300`            | CSS transition duration in milliseconds.                               |
+| `animation.easing`   | `string`            | `'ease-out'`     | Any valid CSS `transition-timing-function`.                            |
+| `mask.display`       | `boolean`           | `true`           | Enable/disable the background overlay.                                 |
+| `mask.opacity`       | `number`            | `0.5`            | Opacity of the background mask.                                        |
+| `mask.css`           | `object`            | `{...}`          | Custom CSS for the mask (e.g., `backgroundColor`).                     |
 
 ## Key Differences from `@dcdavidev/jquery-sidenav`
 
