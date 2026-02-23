@@ -1,0 +1,186 @@
+{
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.rulers": [80]
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.rulers": [80]
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.rulers": [80]
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.rulers": [80]
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[toml]": {
+    "editor.defaultFormatter": "tamasfe.even-better-toml",
+    "editor.tabSize": 2,
+    "editor.rulers": [100]
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.rulers": [80]
+  },
+  "emojisense.languages": {
+    "git-commit": true,
+    "markdown": true,
+    "plaintext": true
+  },
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.fixAll.shellcheck": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80, 110],
+  "editor.tabCompletion": "on",
+  "eslint.debug": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onType",
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "astro",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc",
+    "markdown"
+  ],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "cSpell.enabled": true,
+  "conventionalCommits.emojiFormat": "emoji",
+  "conventionalCommits.gitmoji": true,
+  "conventionalCommits.promptBody": true,
+  "conventionalCommits.promptFooter": true,
+  "conventionalCommits.promptScopes": true,
+  "conventionalCommits.scopes": ["nx-recommended"],
+  "conventionalCommits.showNewVersionNotes": true,
+  "conventionalCommits.storeScopesGlobally": false,
+  "commitlint.log.enabled": true,
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "exportall.config.barrelName": "index.ts",
+  "exportall.config.exportFileExtension": "js",
+  "exportall.config.includeFoldersToExport": false,
+  "exportall.config.namedExports": true,
+  "exportall.config.semis": true,
+  "exportall.config.recursive": true,
+  "emojisense.markupCompletionsEnabled": true,
+  "emojisense.showOnColon": true,
+  "emojisense.unicodeCompletionsEnabled": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.turbo": true,
+    "**/.nx": true,
+    "**/.output": true,
+    "**/.next": true,
+    "**/.cache": true,
+    "**/.vite": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.turbo/**": true,
+    "**/.nx/**": true,
+    "**/.output/**": true,
+    "**/.next/**": true,
+    "**/.cache/**": true,
+    "**/.vite/**": true,
+    "LICENSE": true
+  },
+  "files.associations": {
+    "*.js": "javascript",
+    "*.ts": "typescript",
+    "*.json": "json",
+    "*.jsonc": "jsonc",
+    "*.md": "markdown",
+    "*.sh": "shellscript",
+    "*.toml": "toml",
+    "*.yaml": "yaml",
+    "*.yml": "yaml",
+    ".editorconfig": "editorconfig",
+    ".env*": "dotenv",
+    ".gitignore": "ignore",
+    ".npmrc": "ini",
+    ".nvmrc": "plaintext",
+    ".czrc": "json",
+    ".prettierrc": "json",
+    ".prototools": "toml",
+    "tsconfig*.json": "jsonc",
+    "nx.json": "jsonc",
+    "workspace.json": "jsonc",
+    "project.json": "jsonc",
+    "package.json": "json",
+    "pnpm-lock.yaml": "yaml",
+    "pnpm-workspace.yaml": "yaml",
+    "LICENSE": "plaintext"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["package.json"],
+      "url": "https://json.schemastore.org/package"
+    },
+    {
+      "fileMatch": ["tsconfig*.json"],
+      "url": "https://json.schemastore.org/tsconfig"
+    },
+    {
+      "fileMatch": ["nx.json", "workspace.json", "project.json"],
+      "url": "https://json.schemastore.org/nx-project"
+    },
+    {
+      "fileMatch": [".prettierrc", ".prettierrc.json"],
+      "url": "https://json.schemastore.org/prettierrc"
+    },
+    {
+      "fileMatch": ["lefthook.json", ".lefthook.json", ".config/lefthook.json"],
+      "url": "https://raw.githubusercontent.com/evilmartians/lefthook/refs/heads/master/schema.json"
+    }
+  ],
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": ".github/workflows/*.{yml,yaml}",
+    "https://json.schemastore.org/pnpm-workspace.json": "pnpm-workspace.yaml",
+    "https://raw.githubusercontent.com/evilmartians/lefthook/refs/heads/master/schema.json": "{lefthook,.lefthook,.config/lefthook}.{yml,yaml,toml}"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

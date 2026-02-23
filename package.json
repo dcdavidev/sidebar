@@ -1,22 +1,40 @@
 {
   "name": "root",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "prepare": "husky install",
-    "postinstall": "husky install",
-    "commit": "cz",
     "build": "npx lerna exec -- npm run build",
-    "publish": "npx lerna publish",
-    "prepublish": "npm run build && git add . && git commit -m \"chore: build packages\""
+    "commit": "cz",
+    "prepare": "lefthook install",
+    "prepublish": "npm run build && git add . && git commit -m \"chore: build packages\"",
+    "publish": "npx lerna publish"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-git"
+    }
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.1",
-    "@commitlint/config-conventional": "^17.4.0",
-    "commitizen": "^4.2.6",
-    "husky": "^8.0.3",
-    "lerna": "^5.6.2"
+    "@commitlint/cli": "^20.4.2",
+    "@commitlint/config-conventional": "^20.4.2",
+    "@cspell/cspell-types": "^9.7.0",
+    "@prettier/plugin-xml": "^3.4.2",
+    "commitizen": "^4.3.1",
+    "commitlint-config-spellbookx": "^0.10.0",
+    "cspell": "^9.7.0",
+    "cspell-config-spellbookx": "^0.10.0",
+    "cz-git": "^1.12.0",
+    "eslint": "^10.0.1",
+    "eslint-plugin-spellbookx": "^0.10.0",
+    "lefthook": "^2.1.1",
+    "prettier": "^3.8.1",
+    "prettier-config-spellbookx": "^0.10.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-ini": "^1.3.0",
+    "prettier-plugin-packagejson": "^3.0.0",
+    "prettier-plugin-prisma": "^5.0.0",
+    "prettier-plugin-properties": "^0.3.1",
+    "prettier-plugin-sh": "^0.18.0",
+    "prettier-plugin-tailwindcss": "^0.7.2",
+    "prettier-plugin-toml": "^2.0.6"
   }
 }

@@ -1,12 +1,25 @@
 # EditorConfig is awesome: https://EditorConfig.org
 
-# top-most EditorConfig file
-root = true
+root=true
 
 [*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = false
-insert_final_newline = false
+charset=utf-8
+end_of_line=lf
+insert_final_newline=true
+trim_trailing_whitespace=true
+indent_style=space
+indent_size=2
+
+[*.astro]
+indent_style=tab
+indent_size=4
+
+[*.md]
+trim_trailing_whitespace=false
+
+[*.toml]
+max_line_length=100
+
+[Makefile]
+indent_style=tab
+indent_size=4

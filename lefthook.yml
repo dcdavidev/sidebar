@@ -1,0 +1,8 @@
+remotes:
+  - git_url: https://github.com/spellbookx/lefthook
+    ref: main
+    refetch: true
+    refetch_frequency: 24h
+    configs:
+      - "@commit-msg/pnpx-commitlint.yml"
+      - "@pre-commit/pnpx-eslint-prettier.yml"
