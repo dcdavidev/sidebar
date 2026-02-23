@@ -21,11 +21,8 @@
     "url": "git+https://github.com/dcdavidev/sidebar.git"
   },
   "license": "MIT",
-  "author": "Davide Di Criscito <davide.dicriscito@gmail.com>",
+  "author": "Davide Di Criscito",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.cts",
   "exports": {
     ".": {
       "types": "./dist/index.d.cts",
@@ -33,6 +30,9 @@
       "require": "./dist/index.cjs"
     }
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
   "files": [
     "dist"
   ],

@@ -1,4 +1,4 @@
-interface options {
+export interface VanillaSidebarOptions {
   selector: string;
   triggerer: string;
   quitter: string;
@@ -13,9 +13,9 @@ interface options {
 }
 
 /**
- *
+ * A simple vanilla javascript sidebar.
  */
-class VanillaSidebar {
+export class VanillaSidebar {
   sidebar: HTMLElement;
   triggerer: HTMLElement;
   quitter: NodeListOf<Element>;
@@ -23,7 +23,7 @@ class VanillaSidebar {
   hasMask: boolean;
   selector: string;
   quitterSelector: string;
-  align: any; // must be fixed
+  align: 'right' | 'left';
   top: string;
   width: string;
   gap: number;
@@ -33,9 +33,10 @@ class VanillaSidebar {
   animationDuration: string;
 
   /**
-   *
+   * Initialize the sidebar.
+   * @param opt - The sidebar options.
    */
-  constructor(opt: options) {
+  constructor(opt: VanillaSidebarOptions) {
     this.selector = opt.selector === undefined ? '#sidebar' : opt.selector;
     this.quitterSelector =
       opt.quitter === undefined ? '.quit-sidebar' : opt.selector;
@@ -143,7 +144,7 @@ class VanillaSidebar {
   }
 
   /**
-   *
+   * Set the status attribute of the sidebar.
    */
   setAttribute() {
     const status: string = this.sidebar.dataset.status!;
@@ -152,27 +153,25 @@ class VanillaSidebar {
   }
 
   /**
-   *
+   * Open the sidebar.
    */
   open() {
     this.sidebar.style[this.align] = '0px';
-    const status: string = this.sidebar.dataset.status!;
     this.setAttribute();
     this.showMask();
   }
 
   /**
-   *
+   * Close the sidebar.
    */
   close() {
     this.sidebar.style[this.align] = `-${this.sidebar.offsetWidth}px`;
-    const status: string = this.sidebar.dataset.status!;
     this.setAttribute();
     this.hideMask();
   }
 
   /**
-   *
+   * Show the mask.
    */
   showMask() {
     this.mask.style.opacity = '1';
@@ -180,7 +179,7 @@ class VanillaSidebar {
   }
 
   /**
-   *
+   * Hide the mask.
    */
   hideMask() {
     this.mask.style.opacity = '0';
